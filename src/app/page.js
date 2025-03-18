@@ -1,41 +1,6 @@
-import Image from "next/image";
+import seatsUtils from '../controller/seats.js';
 
-/* Left, Middle, Right
-Left
-A4-5
-B5-6
-C6-7
-D7-8
-E7-8
-F7-8
-G8-9
-H8-9
-I8-9
-J7-8
-
-Middle
-A10-11
-B11-12
-C12-13
-D13-14
-E13-14
-F13-14
-G14-15
-H14-15
-I14-15
-J13-14
-
-Right
-A16-17
-B17-18
-C18-19
-D19-20
-E19-20
-F19-20
-G20-21
-H20-21
-I20-21
-J19-20 */
+const { countSeats, totalSeats } = seatsUtils
 
 const seatingPlan = [ 
   { row: 'A', totalSeats: '21', left: '4', middle: '10', right: '16'}, 
@@ -49,6 +14,68 @@ const seatingPlan = [
   { row: 'I', totalSeats: '26', left: '8', middle: '14', right: '20'}, 
   { row: 'J', totalSeats: '23', left: '7', middle: '13', right: '19'},
 ]
+
+const seats = countSeats()
+
+const renderSeatsLeft = (plan) => {
+  return <div key={plan.row} className="flex flex-col items-end">
+            <div className="flex flex-row gap-2">
+              {[...Array(parseInt(plan.left))].map((_, index) => (
+                <div key={index} className={"flex flex-col items-center justify-center w-12 h-12 border-[1px] border-grey rounded-sm"
+                  + (seats[`${plan.row}-${index + 1}`] ? ' bg-green-700 text-white' : '')
+                }>
+                  <div className="text-md">{plan.row}-{index + 1}</div>
+                  <div className="text-xs">{seats[`${plan.row}-${index + 1}`] || ''}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+}
+
+const renderSeatsMiddleLeft = (plan) => {
+  return <div key={plan.row} className="flex flex-col items-end">
+            <div className="flex flex-row gap-2">
+              {[...Array(parseInt(plan.middle) - parseInt(plan.left))].map((_, index) => (
+                <div key={index} className={"flex flex-col items-center justify-center w-12 h-12 border-[1px] border-grey rounded-sm"
+                  + (seats[`${plan.row}-${index + parseInt(plan.left) + 1}`] ? ' bg-green-700 text-white' : '')
+                }>
+                  <div className="text-md">{plan.row}-{index + parseInt(plan.left) + 1}</div>
+                  <div className="text-xs">{seats[`${plan.row}-${index + parseInt(plan.left) + 1}`] || ''}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+}
+
+const renderSeatsMiddleRight = (plan) => {
+  return <div key={plan.row} className="flex flex-col items-center">
+            <div className="flex flex-row gap-2">
+              {[...Array(parseInt(plan.right) - parseInt(plan.middle))].map((_, index) => (
+                <div key={index} className={"flex flex-col items-center justify-center w-12 h-12 border-[1px] border-grey rounded-sm"
+                  + (seats[`${plan.row}-${index + parseInt(plan.middle) + 1}`] ? ' bg-green-700 text-white' : '')
+                }>
+                  <div className="text-md">{plan.row}-{index + parseInt(plan.middle) + 1}</div>
+                  <div className="text-xs">{seats[`${plan.row}-${index + parseInt(plan.middle) + 1}`] || ''}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+}
+
+const renderSeatsRight = (plan) => {
+  return <div key={plan.row} className="flex flex-col items-start">
+            <div className="flex flex-row gap-2">
+              {[...Array(parseInt(plan.totalSeats) - parseInt(plan.right))].map((_, index) => (
+                <div key={index} className={"flex flex-col items-center justify-center w-12 h-12 border-[1px] border-grey rounded-sm"
+                  + (seats[`${plan.row}-${index + parseInt(plan.right) + 1}`] ? ' bg-green-700 text-white' : '')
+                }>
+                  <div className="text-md">{plan.row}-{index + parseInt(plan.right) + 1}</div>
+                  <div className="text-xs">{seats[`${plan.row}-${index + parseInt(plan.right) + 1}`] || ''}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+}
 
 export default function Home() {
   return (
@@ -102,117 +129,47 @@ export default function Home() {
         </div>
       </main> */}
       <main className="flex flex-col row-start-2 items-center">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center sm:text-left">
-          JKT48 Personal Stats
-        </h1>
-        <p className="text-sm/6 text-center sm:text-left">
-          bukaniannnnnn jkt48 stats
-        </p>
-        <div className="grid grid-cols-4">
-          <div className="col-span-1">
-            <h2 className="text-2xl font-bold text-center">Left</h2>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center sm:text-left">
+          🤡 JKT48 Stats
+        </div>
+        <div className="font-light text-center sm:text-left">
+          Last updated: 18-03-2025
+        </div>
+        <div className="flex flex-row gap-8 my-4">
+          <div>
             <div className="flex flex-col gap-2">
               {seatingPlan.map((plan) => (
-                <div key={plan.row} className="flex flex-col items-end">
-                  <div className="flex flex-row gap-2">
-                    {[...Array(parseInt(plan.left))].map((_, index) => (
-                      <div key={index} className="w-8 h-8 border-[1px] border-grey text-center">{plan.row}{index + 1}</div>
-                    ))}
-                  </div>
-                </div>
+                renderSeatsLeft(plan)
               ))}
             </div>
           </div>
-          <div className="col-span-1">
-            <h2 className="text-2xl font-bold text-center">Middle Left</h2>
+          <div>
             <div className="flex flex-col gap-2">
               {seatingPlan.map((plan) => (
-                <div key={plan.row} className="flex flex-col items-center">
-                  <div className="flex flex-row gap-2">
-                    {[...Array(parseInt(plan.middle) - parseInt(plan.left))].map((_, index) => (
-                      <div key={index} className="w-8 h-8 border-[1px] border-grey text-center">{plan.row}{index + parseInt(plan.left) + 1}</div>
-                    ))}
-                  </div>
-                </div>
+                renderSeatsMiddleLeft(plan)
               ))}
             </div>
           </div>
-          <div className="col-span-1">
-            <h2 className="text-2xl font-bold text-center">Middle Right</h2>
+          <div>
             <div className="flex flex-col gap-2">
               {seatingPlan.map((plan) => (
-                <div key={plan.row} className="flex flex-col items-center">
-                  <div className="flex flex-row gap-2">
-                    {[...Array(parseInt(plan.right) - parseInt(plan.middle))].map((_, index) => (
-                      <div key={index} className="w-8 h-8 border-[1px] border-grey text-center">{plan.row}{index + parseInt(plan.middle) + 1}</div>
-                    ))}
-                  </div>
-                </div>
+                renderSeatsMiddleRight(plan)
               ))}
             </div>
           </div>
-          <div className="col-span-1">
-            <h2 className="text-2xl font-bold text-center">Right</h2>
+          <div>
             <div className="flex flex-col gap-2">
               {seatingPlan.map((plan) => (
-                <div key={plan.row} className="flex flex-col items-start">
-                  <div className="flex flex-row gap-2">
-                    {[...Array(parseInt(plan.totalSeats) - parseInt(plan.right))].map((_, index) => (
-                      <div key={index} className="w-8 h-8 border-[1px] border-grey text-center">{plan.row}{index + parseInt(plan.right) + 1}</div>
-                    ))}
-                  </div>
-                </div>
+                renderSeatsRight(plan)
               ))}
             </div>
           </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="row-start-3 text-center">
+        <div className="text-xl mb-4">Verified count = {totalSeats()}</div>
+        <div className="text-sm font-light">Currently include Ramune's setlist</div>
+        <div className="text-xs font-light">(Ramune has a different seating plan)</div>
       </footer>
     </div>
   );
