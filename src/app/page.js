@@ -1,6 +1,6 @@
-import seatsUtils from '../controller/seats.js';
+import seatsController from '../controller/seatsController.js';
 
-const { countSeats, totalSeats } = seatsUtils
+const { countSeats, totalSeats } = seatsController
 
 const seatingPlan = [ 
   { row: 'A', totalSeats: '21', left: '4', middle: '10', right: '16'}, 
@@ -168,7 +168,7 @@ export default function Home() {
       </main>
       <footer className="row-start-3 text-center">
         <div className="text-xl mb-4">Verified count = {totalSeats()}</div>
-        <div className="text-sm font-light">Currently include Ramune's setlist</div>
+        <div className="text-sm font-light">Currently include Ramune&apos;s setlist</div>
         <div className="text-xs font-light">(Ramune has a different seating plan)</div>
       </footer>
     </div>

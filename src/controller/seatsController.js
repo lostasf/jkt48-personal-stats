@@ -102,7 +102,9 @@ const totalSeats = () => {
   return seats.length
 }
 
-export default {
+const seatsController = {
   countSeats,
   totalSeats,
 }
+
+export default seatsController
