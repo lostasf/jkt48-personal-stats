@@ -1,4 +1,5 @@
-import seatsController from '../controller/seatsController.js';
+import seatsController from '@/utils/seatsController'
+import { SeatingPlan } from '@/types/types'
 
 const { countSeats, totalSeats } = seatsController
 
@@ -17,7 +18,7 @@ const seatingPlan = [
 
 const seats = countSeats()
 
-const renderSeatsLeft = (plan) => {
+const renderSeatsLeft = (plan: SeatingPlan) => {
   return <div key={plan.row} className="flex flex-col items-end">
             <div className="flex flex-row gap-2">
               {[...Array(parseInt(plan.left))].map((_, index) => (
@@ -32,7 +33,7 @@ const renderSeatsLeft = (plan) => {
           </div>
 }
 
-const renderSeatsMiddleLeft = (plan) => {
+const renderSeatsMiddleLeft = (plan: SeatingPlan) => {
   return <div key={plan.row} className="flex flex-col items-end">
             <div className="flex flex-row gap-2">
               {[...Array(parseInt(plan.middle) - parseInt(plan.left))].map((_, index) => (
@@ -47,7 +48,7 @@ const renderSeatsMiddleLeft = (plan) => {
           </div>
 }
 
-const renderSeatsMiddleRight = (plan) => {
+const renderSeatsMiddleRight = (plan: SeatingPlan) => {
   return <div key={plan.row} className="flex flex-col items-center">
             <div className="flex flex-row gap-2">
               {[...Array(parseInt(plan.right) - parseInt(plan.middle))].map((_, index) => (
@@ -62,7 +63,7 @@ const renderSeatsMiddleRight = (plan) => {
           </div>
 }
 
-const renderSeatsRight = (plan) => {
+const renderSeatsRight = (plan: SeatingPlan) => {
   return <div key={plan.row} className="flex flex-col items-start">
             <div className="flex flex-row gap-2">
               {[...Array(parseInt(plan.totalSeats) - parseInt(plan.right))].map((_, index) => (
@@ -172,5 +173,5 @@ export default function Home() {
         <div className="text-xs font-light">(Ramune has a different seating plan)</div>
       </footer>
     </div>
-  );
+  )
 }
