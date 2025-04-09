@@ -14,7 +14,7 @@ export const schedules = pgTable('schedules', { // from https://jkt48.com/calend
     name: text('name').notNull(),
     date: timestamp('date').notNull(),
     href: text('href').notNull(),
-    stsMember: boolean('stsMember').notNull().default(false),
+    stsMember: integer('stsMember').references(() => members.id), // STS member if any
 })
 
 export const schedulesRelations = relations(schedules, ({ many }) => ({
@@ -22,7 +22,7 @@ export const schedulesRelations = relations(schedules, ({ many }) => ({
     schedulesToMembers: many(schedulesToMembers),
 }))
   
-export const categories = pgTable('categories', { // STS, Cara Meminum Ramune, RKJ (all setlist/event), Bowling, etc.
+export const categories = pgTable('categories', { // STS, Cara Meminum Ramune, RKJ (all setlist/event), etc.
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
 })
