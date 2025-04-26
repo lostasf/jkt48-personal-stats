@@ -1,2 +1,15 @@
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
+beautifulsoup4==4.13.4
+certifi==2025.4.26
+charset-normalizer==3.4.1
+DateTime==5.5
+idna==3.10
+pytz==2025.2
+requests==2.32.3
+setuptools==79.0.1
+soupsieve==2.7
+typing_extensions==4.13.2
+urllib3==2.4.0
+uuid==1.30
+zope.interface==7.2
