@@ -86,7 +86,7 @@ export default function Home() {
           🤡 JKT48 Stats
         </div>
         <div className="font-light text-center sm:text-left">
-          Last updated: 30-03-2025
+          Last updated: 29-04-2025
         </div>
         <div className="flex flex-row gap-8 my-4">
           <div>
