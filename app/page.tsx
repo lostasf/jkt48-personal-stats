@@ -1,5 +1,6 @@
 import seatsController from '@/utils/seatsController'
 import { SeatingPlan } from '@/types/types'
+import ticketHistory from '@/scripts/tickethistory.json'
 
 const { countSeats, totalSeats } = seatsController
 
@@ -77,6 +78,9 @@ const renderSeatsRight = (plan: SeatingPlan) => {
             </div>
           </div>
 }
+
+// count ticket history
+const ticketHistoryCount = ticketHistory.length
 
 export default function Home() {
   return (
