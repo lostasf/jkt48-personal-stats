@@ -80,7 +80,7 @@ const renderSeatsRight = (plan: SeatingPlan) => {
 }
 
 // count ticket history
-const ticketHistoryCount = ticketHistory.length
+// const ticketHistoryCount = ticketHistory.length
 
 export default function Home() {
   return (
