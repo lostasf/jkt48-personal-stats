@@ -1,6 +1,6 @@
 import seatsController from '@/utils/seatsController'
 import { SeatingPlan } from '@/types/types'
-import ticketHistory from '@/scripts/tickethistory.json'
+// import ticketHistory from '@/scripts/tickethistory.json'
 
 const { countSeats, totalSeats } = seatsController
 
