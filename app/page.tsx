@@ -1,6 +1,6 @@
 import seatsController from '@/utils/seatsController'
-import { SeatingPlan } from '@/types/types'
-// import ticketHistory from '@/scripts/tickethistory.json'
+import { SeatingPlan } from '@/types'
+// import { getSchedulesByDate } from "@/db/queries";
 
 const { countSeats, totalSeats } = seatsController
 
@@ -79,8 +79,7 @@ const renderSeatsRight = (plan: SeatingPlan) => {
           </div>
 }
 
-// count ticket history
-// const ticketHistoryCount = ticketHistory.length
+// getSchedulesByDate('23 Mei 2025')
 
 export default function Home() {
   return (

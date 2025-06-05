@@ -1,0 +1,280 @@
+[
+  {
+    "operation": "Detil",
+    "purchaseDate": "24 Maret 2025",
+    "name": "CATUR ASTA",
+    "showDate": "28 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/136573?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "21 Maret 2025",
+    "name": "SELEKSI PMDK",
+    "showDate": "23 Maret 2025",
+    "showTime": "",
+    "ticketType": "GEN",
+    "detailUrl": "https://jkt48.com/event/detail/id/136092?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "19 Maret 2025",
+    "name": "SELEKSI PMDK",
+    "showDate": "23 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "19 Maret 2025",
+    "name": "CATUR ASTA",
+    "showDate": "21 Maret 2025",
+    "showTime": "",
+    "ticketType": "GEN"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "18 Maret 2025",
+    "name": "CATUR ASTA",
+    "showDate": "21 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "18 Maret 2025",
+    "name": "QUIT GAME - RESCHEDULE",
+    "showDate": "26 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/135055?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "11 Maret 2025",
+    "name": "Family 48",
+    "showDate": "13 Maret 2025",
+    "showTime": "",
+    "ticketType": "GEN",
+    "detailUrl": "https://jkt48.com/event/detail/id/133117?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "10 Maret 2025",
+    "name": "CATUR ASTA",
+    "showDate": "15 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "10 Maret 2025",
+    "name": "THE BATTLE: DANCING QUEEN",
+    "showDate": "14 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/132589?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "10 Maret 2025",
+    "name": "Family 48",
+    "showDate": "13 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "4 Maret 2025",
+    "name": "HOST SWEET HOST",
+    "showDate": "6 Maret 2025",
+    "showTime": "",
+    "ticketType": "GEN"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "2 Maret 2025",
+    "name": "JKT48 SCHOOL",
+    "showDate": "9 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/129740?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "2 Maret 2025",
+    "name": "THE BATTLE： VOCAL QUEENS",
+    "showDate": "7 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/129735?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "2 Maret 2025",
+    "name": "CATUR ASTA",
+    "showDate": "8 Maret 2025",
+    "showTime": "",
+    "ticketType": "GEN",
+    "detailUrl": "https://jkt48.com/event/detail/id/129677?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "2 Maret 2025",
+    "name": "HOST SWEET HOST",
+    "showDate": "6 Maret 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "23 Januari 2025",
+    "name": "OFC EVENT - PINS & WINS! Sesi 2",
+    "showDate": "28 Januari 2025",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/129171?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "23 Januari 2025",
+    "name": "OFC EVENT - PINS & WINS! Sesi 1",
+    "showDate": "28 Januari 2025",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "15 November 2024",
+    "name": "OFC Event: TuesDate #2",
+    "showDate": "19 November 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "25 Oktober 2024",
+    "name": "JKT48 HALLOWEEN Event 2024",
+    "showDate": "31 Oktober 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "28 September 2024",
+    "name": "OFC Event - SUDDEN VERSUS #2 - The Wild Hunt",
+    "showDate": "30 September 2024",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/124623?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "1 September 2024",
+    "name": "12th Anniversary Event",
+    "showDate": "8 September 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "21 Agustus 2024",
+    "name": "OFC Event - “Namanya Juga Vacation!” with JKT48",
+    "showDate": "27 Agustus 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "4 Mei 2024",
+    "name": "JKT48 OFC Event: Magic Hour Short Movie Premiere",
+    "showDate": "8 Mei 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "5 April 2024",
+    "name": "ANAK KING",
+    "showDate": "7 April 2024",
+    "showTime": "",
+    "ticketType": "GEN"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "3 April 2024",
+    "name": "ELITE ROOM",
+    "showDate": "5 April 2024",
+    "showTime": "",
+    "ticketType": "GEN",
+    "detailUrl": "https://jkt48.com/event/detail/id/116097?lang=id"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "2 April 2024",
+    "name": "ELITE ROOM",
+    "showDate": "6 April 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "2 April 2024",
+    "name": "ANAK KING",
+    "showDate": "7 April 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "2 April 2024",
+    "name": "ELITE ROOM",
+    "showDate": "5 April 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "28 Maret 2024",
+    "name": "ANAK KING",
+    "showDate": "30 Maret 2024",
+    "showTime": "",
+    "ticketType": "GEN"
+  },
+  {
+    "operation": "Kalah",
+    "purchaseDate": "27 Maret 2024",
+    "name": "ANAK KING",
+    "showDate": "30 Maret 2024",
+    "showTime": "",
+    "ticketType": "OFC"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "25 Maret 2024",
+    "name": "ELITE ROOM",
+    "showDate": "30 Maret 2024",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/111843?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "19 Maret 2024",
+    "name": "ANAK KING",
+    "showDate": "24 Maret 2024",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/109969?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "14 Maret 2024",
+    "name": "REALM RUMBLE",
+    "showDate": "16 Maret 2024",
+    "showTime": "",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/event/detail/id/108400?lang=id"
+  }
+]

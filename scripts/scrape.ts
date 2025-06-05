@@ -23,10 +23,10 @@ async function getAndExtractMyPageData(url: string): Promise<MyPageData | null> 
         console.log(`Attempting to fetch data from: ${url}`);
         const response = await axios.get(url, {
             headers: {
-                'Cookie': ''
+                'Cookie': process.env.JKT48_COOKIES
             }
         });
-        const html: any = response.data;
+        const html: string = response.data;
 
         const $ = cheerio.load(html);
 
@@ -74,7 +74,15 @@ async function getAndExtractMyPageData(url: string): Promise<MyPageData | null> 
             nextPageUrl,
         };
 
-    } catch (error: any) {
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.error('Error fetching data:', error.message);
+            if (error.response) {
+                console.error('Response status:', error.response.status);
+                console.error('Response data:', error.response.data);
+            }
+            return null;
+        }
         console.error('An unexpected error occurred:', error);
         return null;
     }
@@ -82,7 +90,7 @@ async function getAndExtractMyPageData(url: string): Promise<MyPageData | null> 
 
 // Example usage:
 
-const targetUrl = 'https://jkt48.com/mypage/ticket-list?page=20&lang=id';
+const targetUrl = 'https://jkt48.com/mypage/event-list?page=4&lang=id';
 
 getAndExtractMyPageData(targetUrl).then(data => {
     if (data) {

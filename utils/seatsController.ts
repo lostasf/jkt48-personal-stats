@@ -96,6 +96,8 @@ const seats: Array<string> = [
   'B-18',
   'D-24',
   'F-23',
+  'G-16',
+  'H-17'
 ]
 
 const countSeats = () => {
@@ -103,7 +105,6 @@ const countSeats = () => {
   for (const seat in seats) {
     count[seats[seat]] = (count[seats[seat]] || 0) + 1
   }
-  // sort it
   const sorted = Object.keys(count).sort((a, b) => {
     const [rowA, seatA] = a.split('-')
     const [rowB, seatB] = b.split('-')
@@ -112,10 +113,11 @@ const countSeats = () => {
     }
     return rowA > rowB ? 1 : -1
   })
-  return sorted.reduce((acc: any, key) => {
-    acc[key] = count[key]
-    return acc
-  }, {})
+  const sortedCount: Record<string, number> = {}
+  for (const seat of sorted) {
+    sortedCount[seat] = count[seat]
+  }
+  return sortedCount
 }
 
 const totalSeats = () => {

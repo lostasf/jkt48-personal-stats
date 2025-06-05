@@ -2,19 +2,20 @@
   {
     "operation": "Detil",
     "purchaseDate": "27 Mei 2025",
+    "name": "Sambil Menggandeng Erat Tanganku",
+    "showDate": "30 Mei 2025",
+    "showTime": "MALAM",
+    "ticketType": "OFC",
+    "detailUrl": "https://jkt48.com/ticket/detail/id/2063691?lang=id"
+  },
+  {
+    "operation": "Detil",
+    "purchaseDate": "27 Mei 2025",
     "name": "Pajama Drive",
     "showDate": "29 Mei 2025",
     "showTime": "MALAM",
     "ticketType": "OFC",
     "detailUrl": "https://jkt48.com/ticket/detail/id/2063800?lang=id"
-  },
-  {
-    "operation": "Tunggu",
-    "purchaseDate": "27 Mei 2025",
-    "name": "Sambil Menggandeng Erat Tanganku",
-    "showDate": "30 Mei 2025",
-    "showTime": "MALAM",
-    "ticketType": "OFC"
   },
   {
     "operation": "Detil",
