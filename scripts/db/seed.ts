@@ -1,8 +1,9 @@
 import { neon } from '@neondatabase/serverless'
 import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/neon-http'
-import membersData from './members.json'
-import showsData from './shows.json'
+import { Member, Show } from '@/types/index'
+import membersData from '@/json/members.json'
+import showsData from '@/json/shows.json'
 import { v4 as uuidv4 } from 'uuid';
 
 import * as schema from '@/db/schema'
@@ -10,14 +11,15 @@ import * as schema from '@/db/schema'
 const sql = neon(process.env.DATABASE_URL as string)
 const db = drizzle(sql, { schema })
 
-// categories first, then member
-
 const main = async () => {
     try {
         console.log('Seeding database...')
         await Promise.all([
+            db.delete(schema.ticketHistoryToSchedules),
             db.delete(schema.schedulesToCategories),
             db.delete(schema.membersToSchedules),
+            db.delete(schema.membersToCategories),
+            db.delete(schema.ticketHistories),
             db.delete(schema.categories),
             db.delete(schema.members),
             db.delete(schema.schedules)
@@ -76,7 +78,7 @@ const main = async () => {
             }
           ]).returning()
         console.log('Categories seeded:', categories.length)
-        const membersJSON = membersData.map((member: any) => ({
+        const membersJSON = membersData.map((member: Member) => ({
             id: uuidv4(),
             name: member.name,
             memberUrl: member.href
@@ -86,7 +88,7 @@ const main = async () => {
             .values(membersJSON)
             .returning()
         console.log('Members seeded:', members.length)
-        const schedulesJSON = showsData.map((show: any) => ({
+        const schedulesJSON = showsData.map((show: Show) => ({
             id: uuidv4(),
             name: show.name,
             date: new Date((show.date + (7 * 3600)) * 1000),

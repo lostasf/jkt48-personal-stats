@@ -9,9 +9,8 @@
     "lint": "next lint",
     "db:studio": "npx drizzle-kit studio",
     "db:push": "npx drizzle-kit push",
-    "db:prod": "tsx ./scripts/seed.ts",
-    "db:drop": "npx drizzle-kit drop",
-    "db:seed": "tsx ./scripts/seed.ts"
+    "db:drop": "tsx ./scripts/db/reset.ts",
+    "db:seed": "tsx ./scripts/db/seed.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.0",
