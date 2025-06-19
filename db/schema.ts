@@ -33,7 +33,7 @@ export const members = pgTable('members', {
 export const schedules = pgTable('schedules', { // from https://jkt48.com/calendar/list?lang=id
     id: uuid('id').primaryKey().defaultRandom(),
     name: text('name').notNull(),
-    date: timestamp('date', { withTimezone: true }).notNull(),
+    date: timestamp('date', { withTimezone: true }).notNull(), // STRICTLY UTC
     href: text('href').notNull(),
     stsMemberId: uuid('stsMemberId').references(() => members.id),
 }, (t) => {

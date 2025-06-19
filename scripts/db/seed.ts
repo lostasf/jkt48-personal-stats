@@ -1,7 +1,7 @@
 import { neon } from '@neondatabase/serverless'
 import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/neon-http'
-import { Member, Show } from '@/types/index'
+import { Member, Schedule } from '@/types/index'
 import membersData from '@/json/members.json'
 import showsData from '@/json/shows.json'
 import { v4 as uuidv4 } from 'uuid';
@@ -88,7 +88,7 @@ const main = async () => {
             .values(membersJSON)
             .returning()
         console.log('Members seeded:', members.length)
-        const schedulesJSON = showsData.map((show: Show) => ({
+        const schedulesJSON = showsData.map((show: Schedule) => ({
             id: uuidv4(),
             name: show.name,
             date: new Date((show.date + (7 * 3600)) * 1000),

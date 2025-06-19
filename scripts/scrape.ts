@@ -1,22 +1,6 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-
-interface TicketPurchase {
-    operation: string;
-    purchaseDate: string;
-    name: string;
-    showDate: string;
-    showTime: string;
-    ticketType: string;
-    detailUrl?: string;
-}
-
-interface MyPageData {
-    ticketHistory: TicketPurchase[];
-    currentPage: string;
-    totalPages: string;
-    nextPageUrl: string | null;
-}
+import { TicketPurchase, MyPageData } from '@/types/index'
 
 async function getAndExtractMyPageData(url: string): Promise<MyPageData | null> {
     try {
