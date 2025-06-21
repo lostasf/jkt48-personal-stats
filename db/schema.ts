@@ -5,7 +5,7 @@ import {
     text,
     timestamp,
     primaryKey,
-  index, // Added index
+    index,
 } from 'drizzle-orm/pg-core'
 
 /**
@@ -13,7 +13,7 @@ import {
  */
 export const categories = pgTable('categories', { // STS, Cara Meminum Ramune, RKJ (all setlist/event), etc.
     id: uuid('id').primaryKey().defaultRandom(),
-    name: text('name').notNull(),
+    name: text('name').notNull()
 }, (t) => {
     return {
         nameIdx: index('category_name_idx').on(t.name),
