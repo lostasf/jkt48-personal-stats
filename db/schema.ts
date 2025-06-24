@@ -33,7 +33,7 @@ export const members = pgTable('members', {
 export const schedules = pgTable('schedules', { // from https://jkt48.com/calendar/list?lang=id
     id: uuid('id').primaryKey().defaultRandom(),
     name: text('name').notNull(),
-    date: timestamp('date', { withTimezone: true }).notNull(), // STRICTLY UTC
+    date: timestamp('date', { withTimezone: true }).notNull(), // STRICTLY UTC, with timezone
     url: text('url').notNull(),
     stsMemberId: uuid('stsMemberId').references(() => members.id),
 }, (t) => {
@@ -45,11 +45,11 @@ export const schedules = pgTable('schedules', { // from https://jkt48.com/calend
 
 export const ticketHistories = pgTable('ticketHistories', {
     id: uuid('id').primaryKey().defaultRandom(),
-    operation: text('name').notNull(),
+    operation: text('operation').notNull(),
     ticketType: text('ticketType').notNull(), // OFC or General
     url: text('url'),
     scheduleId: uuid('scheduleId').notNull().references(() => schedules.id),
-    seatNumber: text('seatNumber')
+    seatNumber: text('seatNumber'),
 }, (t) => {
     return {
         operationIdx: index('ticket_history_operation_idx').on(t.operation),
@@ -71,19 +71,30 @@ export const categoriesRelations = relations(categories, ({ many }) => ({
 export const membersRelations = relations(members, ({ many }) => ({
     membersToSchedules: many(membersToSchedules),
     membersToCategories: many(membersToCategories),
+    stsSchedules: many(schedules, { relationName: 'stsMember' }),
 }))
 
-export const schedulesRelations = relations(schedules, ({ many }) => ({
+export const schedulesRelations = relations(schedules, ({ many, one }) => ({
     schedulesToCategories: many(schedulesToCategories),
     membersToSchedules: many(membersToSchedules),
+    ticketHistories: many(ticketHistories),
+    stsMember: one(members, {
+        fields: [schedules.stsMemberId],
+        references: [members.id],
+        relationName: 'stsMember',
+    }),
 }))
 
 export const ticketHistoriesRelations = relations(ticketHistories, ({ one }) => ({
-    ticketHistoryToSchedules: one(ticketHistoryToSchedules)
+    schedule: one(schedules, {
+        fields: [ticketHistories.scheduleId],
+        references: [schedules.id],
+    }),
 }))
 
 /**
- * Initialize Many-to-Many Relations for JKT48 Schedules, Members, and Categories
+ * Initialize Tables for Many-to-Many Relations
+ * 
  */
 
 export const schedulesToCategories = pgTable('schedules_to_categories', {
@@ -116,16 +127,6 @@ export const membersToCategories = pgTable('members_to_categories', { // members
     index('members_to_categories_category_id_idx').on(t.categoryId),
     ])
 
-export const ticketHistoryToSchedules = pgTable('ticketHistories_to_schedules', {
-    ticketHistoryId: uuid('ticketHistoryId').notNull().references(() => ticketHistories.id),
-    scheduleId: uuid('scheduleId').notNull().references(() => schedules.id),
-},
-    (t) => [
-    primaryKey({ columns: [t.ticketHistoryId, t.scheduleId] }),
-    index('ticket_histories_to_schedules_ticket_history_id_idx').on(t.ticketHistoryId),
-    index('ticket_histories_to_schedules_schedule_id_idx').on(t.scheduleId),
-    ])
-
 /**
  * Initialize Relations for Many-to-Many Relations
  */
@@ -143,9 +144,4 @@ export const membersToSchedulesRelations = relations(membersToSchedules, ({ one 
 export const membersToCategoriesRelations = relations(membersToCategories, ({ one }) => ({
     member: one(members, { fields: [membersToCategories.memberId], references: [members.id] }),
     category: one(categories, { fields: [membersToCategories.categoryId], references: [categories.id] }),
-}))
-
-export const ticketHistoryToSchedulesRelations = relations(ticketHistoryToSchedules, ({ one }) => ({
-    ticketHistory: one(ticketHistories, { fields: [ticketHistoryToSchedules.ticketHistoryId], references: [ticketHistories.id] }),
-    schedule: one(schedules, { fields: [ticketHistoryToSchedules.scheduleId], references: [schedules.id] }),
 }))

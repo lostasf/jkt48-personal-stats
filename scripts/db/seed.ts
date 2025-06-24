@@ -14,7 +14,6 @@ const main = async () => {
     try {
         console.log('Seeding database...')
         await Promise.all([
-            db.delete(schema.ticketHistoryToSchedules),
             db.delete(schema.schedulesToCategories),
             db.delete(schema.membersToSchedules),
             db.delete(schema.membersToCategories),

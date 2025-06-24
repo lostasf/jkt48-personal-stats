@@ -610,7 +610,7 @@
         "purchaseDate": "16 Desember 2024",
         "name": "Tunas di Balik Seragam",
         "showDate": "21 Desember 2024",
-        "showTime": "MALAM",
+        "showTime": "SIANG",
         "ticketType": "OFC",
         "detailUrl": "https://jkt48.com/ticket/detail/id/2016979?lang=id"
     },
@@ -680,7 +680,7 @@
         "purchaseDate": "19 November 2024",
         "name": "Cara Meminum Ramune",
         "showDate": "24 November 2024",
-        "showTime": "MALAM",
+        "showTime": "SIANG",
         "ticketType": "OFC"
     },
     {
@@ -1103,15 +1103,6 @@
     },
     {
         "operation": "Detil",
-        "purchaseDate": "18 Agustus 2024",
-        "name": "Pajama Drive",
-        "showDate": "22 Agustus 2024",
-        "showTime": "MALAM",
-        "ticketType": "OFC",
-        "detailUrl": "https://jkt48.com/ticket/detail/id/1983246?lang=id"
-    },
-    {
-        "operation": "Detil",
         "purchaseDate": "14 Agustus 2024",
         "name": "Aturan Anti Cinta",
         "showDate": "16 Agustus 2024",
@@ -1516,7 +1507,7 @@
         "purchaseDate": "24 Mei 2024",
         "name": "Ingin Bertemu",
         "showDate": "26 Mei 2024",
-        "showTime": "MALAM",
+        "showTime": "SIANG",
         "ticketType": "GEN",
         "detailUrl": "https://jkt48.com/ticket/detail/id/1925890?lang=id"
     },
@@ -1533,7 +1524,7 @@
         "purchaseDate": "21 Mei 2024",
         "name": "Ingin Bertemu",
         "showDate": "26 Mei 2024",
-        "showTime": "MALAM",
+        "showTime": "SIANG",
         "ticketType": "OFC"
     },
     {
@@ -1639,7 +1630,7 @@
         "purchaseDate": "14 April 2024",
         "name": "Cara Meminum Ramune",
         "showDate": "20 April 2024",
-        "showTime": "MALAM",
+        "showTime": "SIANG",
         "ticketType": "OFC"
     },
     {
