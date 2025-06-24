@@ -5,7 +5,7 @@
 * @param {string} date - The date string in the format "DD Month YYYY".
 * @returns {string} The date string.
 */
-export const indonesiaDateToISOString = (date: string): string => {
+export const indonesianDateToISOString = (date: string): string => {
     const [day, month, year] = date.split(' ');
     const monthMap: { [key: string]: string } = {
         'Januari': '01',
@@ -43,7 +43,7 @@ export const convertUTCToGMT7 = (date: Date): string => {
  * @returns { startOfDay: Date, startOfNextDay: Date } - An object containing the start of the day and the start of the next day in UTC.
  */
 export const getStartAndEndOfDayFromDate = (date: string): { startOfDay: Date, startOfNextDay: Date } => {
-    const targetDate = indonesiaDateToISOString(date)
+    const targetDate = indonesianDateToISOString(date)
     const startOfDay = new Date(`${targetDate}T00:00:00.000Z`)
     const nextDay = new Date(targetDate)
     nextDay.setDate(nextDay.getDate() + 1)

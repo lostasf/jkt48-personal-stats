@@ -5,14 +5,15 @@ Made using Typescript and Drizzle ORM. With the intention to present show winrat
 ## Seating Plan Setup
 - [x] Setup standard seat planning for shows
 - [ ] Setup Cara Meminum Ramune seat planning -> haven't been able to get the full seat plan yet
+
 ## Early Scraping
 - [x] Scraped JKT48 shows from 2024 - 2025
 - [x] Scraped personal ticket and event history
-## Typescript
-- [ ] Create proper interfaces for scraped data
+
 ## Data Setup
 - [ ] Append personal ticket history into shows
 - [ ] Refactor seatsController into db queries -> need to finish appending personal ticket history into existing shows
+
 ## Main Feature
 - [ ] GetShowsWinrate
 - [ ] GetShowsFilteredByDay
@@ -24,6 +25,8 @@ Made using Typescript and Drizzle ORM. With the intention to present show winrat
 ## Scraping
 - [ ] Finish script for auth in JKT48
 - [ ] Use cron job for future scraping
+- [ ] Create proper interfaces for scraped data
+
 ## Additional Feature
 - [ ] Show 2S Rulet Gallery
 - [ ] Search table for every show that I've attended

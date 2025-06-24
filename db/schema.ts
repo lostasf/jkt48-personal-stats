@@ -23,7 +23,7 @@ export const categories = pgTable('categories', { // STS, Cara Meminum Ramune, R
 export const members = pgTable('members', {
     id: uuid('id').primaryKey().defaultRandom(),
     name: text('name').notNull(),
-    memberUrl: text('memberUrl').notNull(),
+    url: text('url').notNull(),
 }, (t) => {
     return {
         nameIdx: index('member_name_idx').on(t.name),
@@ -34,7 +34,7 @@ export const schedules = pgTable('schedules', { // from https://jkt48.com/calend
     id: uuid('id').primaryKey().defaultRandom(),
     name: text('name').notNull(),
     date: timestamp('date', { withTimezone: true }).notNull(), // STRICTLY UTC
-    href: text('href').notNull(),
+    url: text('url').notNull(),
     stsMemberId: uuid('stsMemberId').references(() => members.id),
 }, (t) => {
     return {
@@ -47,7 +47,7 @@ export const ticketHistories = pgTable('ticketHistories', {
     id: uuid('id').primaryKey().defaultRandom(),
     operation: text('name').notNull(),
     ticketType: text('ticketType').notNull(), // OFC or General
-    detailUrl: text('detailUrl'),
+    url: text('url'),
     scheduleId: uuid('scheduleId').notNull().references(() => schedules.id),
 }, (t) => {
     return {
