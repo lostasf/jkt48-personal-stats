@@ -49,11 +49,13 @@ export const ticketHistories = pgTable('ticketHistories', {
     ticketType: text('ticketType').notNull(), // OFC or General
     url: text('url'),
     scheduleId: uuid('scheduleId').notNull().references(() => schedules.id),
+    seatNumber: text('seatNumber')
 }, (t) => {
     return {
         operationIdx: index('ticket_history_operation_idx').on(t.operation),
         ticketTypeIdx: index('ticket_history_ticket_type_idx').on(t.ticketType),
         scheduleIdIdx: index('ticket_history_schedule_id_idx').on(t.scheduleId),
+        seatNumberIdx: index('ticket_history_seat_number_idx').on(t.seatNumber),
     }
 })
 

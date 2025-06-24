@@ -1,6 +1,6 @@
 import axios from 'axios'
 import * as cheerio from 'cheerio'
-import { MyPageData } from '@/types/scrape'
+import { MyPageData, TicketShowTime } from '@/types/scrape'
 import { TicketPurchase, TicketOperation, TicketType } from '@/types/scrape'
 import { IndonesianHumanReadableDate } from '@/types/date'
 
@@ -50,7 +50,7 @@ async function getAndExtractMyPageData(
                 showDate: $(columns[3])
                     .text()
                     .trim() as IndonesianHumanReadableDate,
-                showTime: $(columns[4]).text().trim(),
+                showTime: $(columns[4]).text().trim() as TicketShowTime,
                 ticketType: $(columns[5]).text().trim() as TicketType,
                 url: detailLink ? `https://jkt48.com${detailLink}` : undefined,
             })

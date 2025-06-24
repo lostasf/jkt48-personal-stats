@@ -1,10 +1,9 @@
 import { neon } from '@neondatabase/serverless'
 import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/neon-http'
-import { Member, Schedule, Category } from '@/db/types/models'
+import { Member, Schedule, Category } from '@/db/types'
 import membersJSON from '@/json/members.json'
 import showsJSON from '@/json/shows.json'
-import { v4 as uuidv4 } from 'uuid'
 
 import * as schema from '@/db/schema'
 
@@ -24,56 +23,44 @@ const main = async () => {
             db.delete(schema.members),
             db.delete(schema.schedules),
         ])
-        const categoriesData: Category[] = [
-                {
-                    id: uuidv4(),
-                    name: 'Aturan Anti Cinta',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Cara Meminum Ramune',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Ingin Bertemu',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Pajama Drive',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Sambil Menggandeng Erat Tanganku',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Tunas di Balik Seragam',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'STS',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Theatre Anniversary',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Event',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Trainee',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Core Member',
-                },
-                {
-                    id: uuidv4(),
-                    name: 'Ramadhan',
-                },
-            ]
+        const categoriesData: Omit<Category, 'id'>[] = [
+            {
+                name: 'Aturan Anti Cinta',
+            },
+            {
+                name: 'Cara Meminum Ramune',
+            },
+            {
+                name: 'Ingin Bertemu',
+            },
+            {
+                name: 'Pajama Drive',
+            },
+            {
+                name: 'Sambil Menggandeng Erat Tanganku',
+            },
+            {
+                name: 'Tunas di Balik Seragam',
+            },
+            {
+                name: 'STS',
+            },
+            {
+                name: 'Theatre Anniversary',
+            },
+            {
+                name: 'Event',
+            },
+            {
+                name: 'Trainee',
+            },
+            {
+                name: 'Core Member',
+            },
+            {
+                name: 'Ramadhan',
+            },
+        ]
         const categories = await db
             .insert(schema.categories)
             .values(categoriesData)
@@ -81,11 +68,11 @@ const main = async () => {
         console.log('Categories seeded:', categories.length)
 
         const membersData = membersJSON.map(
-            (member: { name: string; href: string }) => ({ 
-                id: uuidv4(),
-                name: member.name,
-                url: member.href,
-            } as Member)
+            (member: { name: string; href: string }) =>
+                ({
+                    name: member.name,
+                    url: member.href,
+                } as Omit<Member, 'id'>)
         )
         const members = await db
             .insert(schema.members)
@@ -94,13 +81,13 @@ const main = async () => {
         console.log('Members seeded:', members.length)
 
         const schedulesData = showsJSON.map(
-            (show: { name: string; date: number; href: string }) => ({
-                id: uuidv4(),
-                name: show.name,
-                date: new Date((show.date + 7 * 3600) * 1000), // Convert to UTC
-                url: show.href,
-                stsMemberId: null, // Assuming no STS member for now
-            } as Schedule)
+            (show: { name: string; date: number; href: string }) =>
+                ({
+                    name: show.name,
+                    date: new Date(show.date * 1000), // IN UTC
+                    url: show.href,
+                    stsMemberId: null, // Assuming no STS member for now
+                } as Omit<Schedule, 'id'>)
         )
         const schedules = await db
             .insert(schema.schedules)

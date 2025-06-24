@@ -24,10 +24,11 @@ export interface Schedule {
 export type TicketOperation = 'Detil' | 'Kalah';
 export type TicketType = 'OFC' | 'GEN';
 
-export interface TicketPurchase {
+export interface TicketHistory {
     id: string,
     operation: TicketOperation,
     ticketType: TicketType,
     url?: string,
-    scheduleId: string
+    scheduleId: string,
+    seatNumber?: string
 }

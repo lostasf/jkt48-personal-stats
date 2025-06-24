@@ -11,7 +11,7 @@ Made using Typescript and Drizzle ORM. With the intention to present show winrat
 - [x] Scraped personal ticket and event history
 
 ## Data Setup
-- [ ] Append personal ticket history into shows
+- [ ] Finish appending ticketHistory to shows
 - [ ] Refactor seatsController into db queries -> need to finish appending personal ticket history into existing shows
 
 ## Main Feature
