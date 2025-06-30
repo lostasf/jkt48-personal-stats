@@ -4,22 +4,20 @@ import { and, lte, gte, ilike } from 'drizzle-orm'
 import * as schema from '@/db/schema'
 
 import { IndonesianHumanReadableDate } from '@/types/date'
-import { TicketShowTime } from '@/types/scrape'
-import { Schedule, TicketHistory } from '@/db/types'
+import { TicketPurchase } from '@/types/scrape'
+import { Schedule, TicketHistory, Member } from '@/db/types'
 
 import { getLowerAndUpperBoundOfTicketDateByShowDateAndShowTime } from '@/utils/index'
 
 export const getOneScheduleByDateShowTimeAndName = cache(async (
     date: IndonesianHumanReadableDate,
-    showTime: TicketShowTime,
+    showTime: NonNullable<TicketPurchase['showTime']>,
     scheduleName: string
 ): Promise<Pick<Schedule, 'id'>> => {
     const bounds = getLowerAndUpperBoundOfTicketDateByShowDateAndShowTime(date, showTime)
-    if (!bounds) {
-        throw new Error('Invalid showTime or date provided')
-    }
+    if (!bounds) throw new Error('Invalid showTime or date provided')
+
     const { lowerBound, upperBound } = bounds
-    console.log('Fetching schedule with bounds:', { lowerBound, upperBound, scheduleName })
     const result = await db
         .select({
             id: schema.schedules.id,
@@ -55,4 +53,38 @@ export const createTicketHistoryByScheduleId = cache(async (
         })
 
     return createdTicketHistory
+})
+
+export const getAllMembers = cache(async (
+): Promise<Member[]> => {
+    const result  = await db
+        .select()
+        .from(schema.members)
+        .orderBy(schema.members.name)
+        .catch((error) => {
+            console.error('Error fetching members:', error)
+            throw new Error('Failed to fetch members from the database')
+        })
+    
+    return result.map(member => ({
+        ...member,
+        url: member.url as Member['url']
+    }))
+})
+
+export const getAllSchedules = cache(async (
+): Promise<Schedule[]> => {
+    const result = await db
+        .select()
+        .from(schema.schedules)
+        .orderBy(schema.schedules.date)
+        .catch((error) => {
+            console.error('Error fecthing schedules:', error)
+            throw new Error('Failed to fetch schedules from the database')
+        })
+    
+    return result.map(schedule => ({
+        ...schedule,
+        url: schedule.url as Schedule['url']
+    }))
 })

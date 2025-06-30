@@ -12,7 +12,6 @@ const main = async () => {
             sql`DROP TABLE IF EXISTS members_to_categories CASCADE`,
             sql`DROP TABLE IF EXISTS members_to_schedules CASCADE`,
             sql`DROP TABLE IF EXISTS schedules_to_categories CASCADE`,
-            sql`DROP TABLE IF EXISTS "ticketHistories_to_schedules" CASCADE`,
             sql`DROP TABLE IF EXISTS "ticketHistories" CASCADE`,
             sql`DROP TABLE IF EXISTS categories CASCADE`,
             sql`DROP TABLE IF EXISTS members CASCADE`,

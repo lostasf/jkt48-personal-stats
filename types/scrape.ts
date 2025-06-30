@@ -1,8 +1,5 @@
-import { IndonesianHumanReadableDate } from './date'
-
-export type TicketOperation = 'Detil' | 'Kalah'
-export type TicketType = 'OFC' | 'GEN'
-export type TicketShowTime = 'SIANG' | 'MALAM'
+import { IndonesianHumanReadableDate } from '@/types/date'
+import { TicketOperation, TicketShowTime, TicketType } from '@/types/index'
 
 export interface TicketPurchase {
     operation: TicketOperation,
@@ -19,4 +16,9 @@ export interface MyPageData {
     currentPage: string
     totalPages: string
     nextPageUrl: string | null
+}
+
+export interface ScheduleDetail {
+    members: string[],
+    memberSTS?: string
 }

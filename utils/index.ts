@@ -1,5 +1,5 @@
 import { IndonesianHumanReadableDate, ISOStringDate } from "@/types/date";
-import { TicketShowTime } from "@/types/scrape";
+import { TicketPurchase } from "@/types/scrape";
 
 /*
 * Converts a date string in the format "DD Month YYYY" (e.g., "1 Januari 2023")
@@ -39,13 +39,13 @@ export const indonesianHumanReadableDateToISOString = (date: IndonesianHumanRead
 
 export const getLowerAndUpperBoundOfTicketDateByShowDateAndShowTime = (
     date: IndonesianHumanReadableDate,
-    showTime: TicketShowTime
+    showTime: NonNullable<TicketPurchase['showTime']>
 ) => {
     // If showTime === 'SIANG' -> lowerBound = 12:00:00 GMT+7, upperBound = 14:00:00 GMT+7 inclusive
     // if showTime === 'MALAM' -> upperBound = 15:00:00 GMT+7, upperBound = 19:30:00 GMT+7 inclusive
     const dateInISOString: string = indonesianHumanReadableDateToISOString(date)
-    const lowerBound = showTime === 'SIANG' as TicketShowTime ? 'T05:00:00.000Z' : 'T08:00:00.000Z'
-    const upperBound = showTime === 'SIANG' as TicketShowTime ? 'T07:00:00.000Z' : 'T12:30:00.000Z'
+    const lowerBound = showTime === 'SIANG' as NonNullable<TicketPurchase['showTime']> ? 'T05:00:00.000Z' : 'T08:00:00.000Z'
+    const upperBound = showTime === 'SIANG' as NonNullable<TicketPurchase['showTime']> ? 'T07:00:00.000Z' : 'T12:30:00.000Z'
     
 
     return {
