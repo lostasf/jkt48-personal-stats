@@ -107,7 +107,13 @@ const seats: Array<string> = [
   'G-10',
   'H-23',
   'E-17',
-  'B-15'
+  'B-15',
+  'D-14',
+  'C-4',
+  'D-7',
+  'I-6',
+  'A-18',
+  'C-14'
 ]
 
 const countSeats = () => {
